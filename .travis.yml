@@ -1,50 +1,41 @@
-# Config file for automatic testing at travis-ci.org
-# This file will be regenerated if you run travis_pypi_setup.py
-
 language: python
 dist: bionic
 python:
-  - 3.6
-  - 3.7
-
+- 3.6
+- 3.7
 env:
   matrix:
-    - TEST_ENV=conda
+  - TEST_ENV=conda
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+before_install:
+- wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+- bash miniconda.sh -b -p $HOME/miniconda;
+- export PATH="$HOME/miniconda/bin:$PATH";
+- hash -r;
+- conda config --set always_yes yes --set changeps1 no;
+- conda update -q conda;
+- conda info -a;
+
 install:
-  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-  - bash miniconda.sh -b -p $HOME/miniconda;
-  - export PATH="$HOME/miniconda/bin:$PATH";
-  - hash -r;
-  - conda config --set always_yes yes --set changeps1 no;
-  - conda update -q conda;
-  - conda info -a;
+- conda create -n test_env python=$TRAVIS_PYTHON_VERSION --yes;
+- conda activate test_env;
+- python -m pip install -r requirements_dev.txt;
+- conda install --yes --file requirements_conda.txt;
+- python setup.py install;
 
-  - conda create -n test_env python=$TRAVIS_PYTHON_VERSION --yes;
-  - source activate test_env;
-
-  - python setup.py install;
-  - python -m pip install -r requirements_dev.txt;
-  - conda install --yes --file requirements_conda.txt;
-
-# command to run tests, e.g. python setup.py test
 script:
-  - pytest &&
-  - sphinx-apidoc -o docs dalia &&
-  - sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html;
+- pytest &&
+- sphinx-apidoc -o docs dalia &&
+- sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html;
 
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: __token__
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: boKPPgLHYEgBMul1+9dIm9F2PEp1knsSHhBPTAJbd7fNZ1l+CMEIZTGg0FUi1ceLyfWZ0gtWGJHMH8cB2AktLH5jB2pebXI0mOXIv2igitQ4M+UIG4AZEeMMvi3B5kPdHDDj04q0tpk+JdsVCWhir2SyUVpBEI5id4LvqJJpnvcP3wNWZzsWEpid38Hq7NR43i50LzNu+S2pS3S0VxUcoQNL5wIi5UjYe8HlLyPe3JtpCkmAj2pGlg0IGX41r4giK2l920QtoraTY2Q+7h/IuKjm+XQSsIZOyGMG75Q/NvIeQssmAjmEDH8Tj/SW1j8XqLYZ4ixNMrN6kAeWPgBkpe+2muF+AjHfw8zdIP1hZuCaCI2jfS0Mc0z3ibC/iaXYFA7wzKPiJ5CJ6ekoD0HHAo3J6iKhQzWz40gMa6YzZIvMyojvP6Y44MVy0SLD+1Fx/cEJ+pm/lhqtpwqaEz7vDqSNyfXQ8As+4eyGTOo/7MjUm/OJAHR72+2T8MbMxsfDytW67VFeDsWqaMa0PkuiWAb6B0BWcPKn1XLMNmFwGYl1ZyFoMpJki01Wa+EU1h4C+Uz/aye0erYAw4VPQI29V34JPtObOmGzkLP7uZD0n/Rajv3lqkd0k4EuUpH/w78ga24zVb2LUjV7iIc9fC0IeTNDQqc4gRP9ZNT/SG9gvuQ=
   on:
     tags: true
   skip_existing: true
-
 after_success:
-  - coveralls
+- coveralls
