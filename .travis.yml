@@ -18,6 +18,7 @@ matrix:
     - JOB_OS=Linux
 
   - os: osx
+    language: generic
     env:
     - CONDA_ENV=py37
     - JOB_OS=MacOSX
