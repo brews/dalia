@@ -1,9 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""The setup script."""
-
 from setuptools import setup, find_packages
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -28,11 +24,12 @@ test_requirements = [
 setup(
     name='dalia',
     version='0.0.1a1',
-    description="Mythic goddess of fate. Giver and taker of goods and property.",
+    description="Goddess of fate - giver and taker of goods",
     long_description=readme + '\n\n' + history,
+    long_description_content_type='text/x-rst',
     author="Brewster Malevich",
     author_email='bmalevich@rhg.com',
-    url='https://github.com/ClimateImpactLab/dalia',
+    url='https://github.com/brews/dalia',
     packages=find_packages(include=['dalia']),
     include_package_data=True,
     install_requires=requirements,
@@ -44,11 +41,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 3.7'
     ],
     test_suite='tests',
     tests_require=test_requirements,
