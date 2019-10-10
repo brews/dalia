@@ -33,7 +33,7 @@ before_install:
 
 install:
 - conda create -n test_env python=$TRAVIS_PYTHON_VERSION --yes
-- conda activate test_env
+- source activate test_env
 - python -m pip install -r requirements_dev.txt
 - conda install --yes --file requirements_conda.txt
 - python setup.py install
