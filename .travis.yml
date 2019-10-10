@@ -1,7 +1,7 @@
 dist: bionic
 language: python
 notifications:
-  email: false
+  email: on_failure
 
 matrix:
   fast_finish: true
