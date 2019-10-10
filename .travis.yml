@@ -1,11 +1,26 @@
-language: python
 dist: bionic
-python:
-- 3.6
-- 3.7
-env:
-  matrix:
-  - TEST_ENV=conda
+language: python
+notifications:
+  email: false
+
+matrix:
+  fast_finish: true
+  include:
+
+  - python: 3.7
+    env:
+    - CONDA_ENV=py37
+    - JOB_OS=Linux
+
+  - python: 3.6
+    env:
+    - CONDA_ENV=py36
+    - JOB_OS=Linux
+
+  - os: osx
+    env:
+    - CONDA_ENV=py37
+    - JOB_OS=MacOSX
 
 before_install:
 - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -37,5 +52,6 @@ deploy:
   on:
     tags: true
   skip_existing: true
+  
 after_success:
 - coveralls
