@@ -13,21 +13,15 @@ dalia
         :target: https://dalia.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/brews/dalia/shield.svg
-     :target: https://pyup.io/repos/github/brews/dalia/
-     :alt: Updates
-
 
 Mythic goddess of fate. Giver and taker of goods and property.
+
+This code is under heavy development. Don't use it.
 
 
 * Free software: GNU General Public License v3
 * Documentation: https://dalia.readthedocs.io.
 
-
-
-Setting up this package
------------------------
 
 Features
 --------
