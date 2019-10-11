@@ -18,12 +18,17 @@ Mythic goddess of fate. Giver and taker of goods and property.
 
 This code is under heavy development. Don't use it.
 
-
-* Free software: GNU General Public License v3
 * Documentation: https://dalia.readthedocs.io.
-
+* Free software: GNU General Public License v3
 
 Features
 --------
 
 * TODO
+
+Installation
+------------
+
+To install with ``pip``::
+
+    pip install dalia
