@@ -34,18 +34,16 @@ setup(
     packages=find_packages(include=['dalia']),
     include_package_data=True,
     install_requires=requirements,
-    license="GNU General Public License v3",
     zip_safe=False,
     keywords='dalia',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7'
     ],
-    test_suite='tests',
     tests_require=test_requirements,
     setup_requires=setup_requirements,
 )

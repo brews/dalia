@@ -19,7 +19,7 @@ Mythic goddess of fate. Giver and taker of goods and property.
 This code is under heavy development. Don't use it.
 
 * Documentation: https://dalia.readthedocs.io.
-* Free software: GNU General Public License v3
+* Free software: Apache License 2.0
 
 Features
 --------
