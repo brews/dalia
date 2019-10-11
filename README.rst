@@ -32,3 +32,4 @@ Installation
 To install with ``pip``::
 
     pip install dalia
+
