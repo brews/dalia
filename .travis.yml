@@ -41,6 +41,7 @@ install:
 
 script:
 - pytest
+- flake8
 - sphinx-apidoc -o docs dalia
 - sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html
 

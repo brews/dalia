@@ -17,6 +17,7 @@ setup_requirements = [
 ]
 
 test_requirements = [
+    'flake8',
     'pytest',
     # TODO: put package test requirements here
 ]
