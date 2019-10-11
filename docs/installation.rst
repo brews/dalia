@@ -14,7 +14,7 @@ To install dalia, run this command in your terminal:
 
     $ pip install dalia
 
-This is the preferred method to install dalia, as it will always install the most recent stable release. 
+This is the preferred method to install dalia, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/ClimateImpactLab/dalia
+    $ git clone git://github.com/brews/dalia
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/ClimateImpactLab/dalia/tarball/master
+    $ curl  -OL https://github.com/brews/dalia/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/ClimateImpactLab/dalia
-.. _tarball: https://github.com/ClimateImpactLab/dalia/tarball/master
+.. _Github repo: https://github.com/brews/dalia
+.. _tarball: https://github.com/brews/dalia/tarball/master
