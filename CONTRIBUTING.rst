@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/ClimateImpactLab/dalia/issues.
+Report bugs at https://github.com/brews/dalia/issues.
 
 If you are reporting a bug, please include:
 
@@ -78,11 +78,10 @@ Ready to contribute? Here's how to set up `dalia` for local development.
 
 5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
 
-    $ flake8 dalia tests
-    $ python setup.py test or pytest
-    $ tox
+    $ flake8 dalia
+    $ pytest
 
-   To get flake8 and tox, just pip install them into your virtualenv.
+   To get flake8, just pip install them into your environment.
 
 6. Commit your changes and push your branch to GitHub::
 
@@ -111,3 +110,4 @@ Tips
 To run a subset of tests::
 
     $ pytest tests.test_dalia
+
