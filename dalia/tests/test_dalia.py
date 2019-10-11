@@ -1,11 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""Tests for `dalia` package."""
-
 import pytest
 
-from dalia import dalia
 
 @pytest.fixture
 def response():
