@@ -1,5 +1,3 @@
-.. currentmodule:: dalia
-
 =======
 History
 =======
@@ -8,7 +6,7 @@ History
 0.1.2a1 (2019-10-31)
 --------------------
 
-* Add :py:func:`read_csvv` and :py:class:`dalia.csvv.Csvv` to read and represent CSVV files.
+* Add ``read_csvv()`` and ``dalia.csvv.Csvv`` to read and represent CSVV files.
 * Initial documentation.
 
 
