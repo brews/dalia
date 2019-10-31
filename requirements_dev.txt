@@ -1,4 +1,3 @@
-bumpversion
 wheel
 flake8
 coverage
@@ -12,3 +11,4 @@ numpydoc
 ipython
 pre-commit
 black
+twine
