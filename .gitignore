@@ -44,6 +44,8 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+.pytest_cache
+dask-worker-space/
 
 # Translations
 *.mo
@@ -54,9 +56,18 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+docs/generated/
+
+# IDEs
+.idea
+*.swp
+.DS_Store
+.vscode/
 
 # PyBuilder
 target/
 
 # pyenv python configuration file
 .python-version
+
+.ipynb_checkpoints
