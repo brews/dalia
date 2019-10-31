@@ -10,3 +10,5 @@ pytest-runner
 sphinx_rtd_theme
 numpydoc
 ipython
+pre-commit
+black
