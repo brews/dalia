@@ -12,11 +12,11 @@ matrix:
     - CONDA_ENV=py37
     - JOB_OS=Linux
 
-  - os: osx
-    language: generic
-    env:
-    - CONDA_ENV=py37
-    - JOB_OS=MacOSX
+  # - os: osx
+  #   language: generic
+  #   env:
+  #   - CONDA_ENV=py37
+  #   - JOB_OS=MacOSX
 
 before_install:
 - wget https://repo.continuum.io/miniconda/Miniconda3-latest-$JOB_OS-x86_64.sh -O miniconda.sh
