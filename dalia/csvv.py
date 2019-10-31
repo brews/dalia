@@ -11,7 +11,9 @@ import yaml
 
 @dataclass
 class Csvv:
-    """Data from a CSVV file"""
+    """Data from a CSVV file
+    """
+
     oneline: str
     version: str
     dependencies: str
@@ -26,7 +28,7 @@ class Csvv:
     residvcv: float
 
 
-def _parse_csvvlines(lines, sep=','):
+def _parse_csvvlines(lines, sep=","):
     """List of str from CSVV file to dict
 
     Parameters
@@ -42,8 +44,22 @@ def _parse_csvvlines(lines, sep=','):
     meta : dict
     """
     # This all could be done better...
-    header_sections = ['oneline', 'version', 'dependencies', 'description', 'csvv-version', 'variables']
-    body_sections = ['observations', 'prednames', 'covarnames', 'gamma', 'gammavcv', 'residvcv']
+    header_sections = [
+        "oneline",
+        "version",
+        "dependencies",
+        "description",
+        "csvv-version",
+        "variables",
+    ]
+    body_sections = [
+        "observations",
+        "prednames",
+        "covarnames",
+        "gamma",
+        "gammavcv",
+        "residvcv",
+    ]
     # Divide into header an body
     header_lines = []
     body = defaultdict(list)
@@ -55,19 +71,19 @@ def _parse_csvvlines(lines, sep=','):
     n_lines = len(lines)
     for idx, l in enumerate(lines):
 
-        if l.strip() == '---':
+        if l.strip() == "---":
             # First line of file, indicates header incoming.
             inheader = True
             inbody = False
             continue
 
-        if l.strip() == '...' and n_lines > idx:
+        if l.strip() == "..." and n_lines > idx:
             # First transition to body.
             inheader = False
             inbody = True
             continue
-        elif l.strip() == '...':
-            raise IndexError('CSVV body has too few lines')
+        elif l.strip() == "...":
+            raise IndexError("CSVV body has too few lines")
 
         if inheader:
             header_lines.append(l.rstrip())
@@ -82,7 +98,7 @@ def _parse_csvvlines(lines, sep=','):
                 # This is a data section.
                 body[inbody].append([x.strip() for x in l.split(sep)])
 
-    meta = yaml.load('\n'.join(header_lines), Loader=yaml.SafeLoader)
+    meta = yaml.load("\n".join(header_lines), Loader=yaml.SafeLoader)
     # Combine sections
     meta.update(body)
 
@@ -90,29 +106,29 @@ def _parse_csvvlines(lines, sep=','):
 
     # Clean body data
     # Flatten nested lists where needed.
-    for k in ['prednames', 'covarnames', 'gamma', 'residvcv', 'observations']:
+    for k in ["prednames", "covarnames", "gamma", "residvcv", "observations"]:
         meta[k] = [item for sublist in meta[k] for item in sublist]
 
     # Check for correct len.
-    n = len(meta['gammavcv'])
-    for k in ['prednames', 'covarnames', 'gamma']:
-        assert len(meta[k]) == n, f'{k} does not contain {n} elements'
+    n = len(meta["gammavcv"])
+    for k in ["prednames", "covarnames", "gamma"]:
+        assert len(meta[k]) == n, f"{k} does not contain {n} elements"
 
     # Cast numerics from strings
-    for k in ['gamma', 'gammavcv', 'residvcv']:
-        meta[k] = np.array(meta[k], dtype='float')
-    meta['observations'] = np.array(meta['observations'], dtype='int')
+    for k in ["gamma", "gammavcv", "residvcv"]:
+        meta[k] = np.array(meta[k], dtype="float")
+    meta["observations"] = np.array(meta["observations"], dtype="int")
 
     # Arrays to scalars
-    meta['observations'] = meta['observations'].item()
-    meta['residvcv'] = meta['residvcv'].item()
+    meta["observations"] = meta["observations"].item()
+    meta["residvcv"] = meta["residvcv"].item()
 
     # meta keys eventually become attrs, so remove "-"
-    meta['csvv_version'] = meta.pop('csvv-version')
+    meta["csvv_version"] = meta.pop("csvv-version")
     return meta
 
 
-def read_csvv(filepath_or_buffer, sep=','):
+def read_csvv(filepath_or_buffer, sep=","):
     """Read a CSVV file into a CSVV object
 
     Parameters
@@ -128,7 +144,7 @@ def read_csvv(filepath_or_buffer, sep=','):
     Csvv
     """
     if isinstance(filepath_or_buffer, str):
-        with open(filepath_or_buffer, 'r') as fl:
+        with open(filepath_or_buffer, "r") as fl:
             fl_guts = fl.readlines()
     else:
         fl_guts = filepath_or_buffer.readlines()
