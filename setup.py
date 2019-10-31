@@ -23,7 +23,7 @@ test_requirements = [
 
 setup(
     name="dalia",
-    version="0.0.1a1",
+    version="version='0.1.0'",
     description="Goddess of fate - giver and taker of goods",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
