@@ -1,5 +1,3 @@
-.. currentmodule:: dalia
-
 =====
 dalia
 =====
@@ -26,7 +24,7 @@ This code is under heavy development. Don't use it.
 Features
 --------
 
-* Read CSVV files with :py:func:`read_csvv`.
+* Read CSVV files with ``dalia.read_csvv()``.
 
 Installation
 ------------
