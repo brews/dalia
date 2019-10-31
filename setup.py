@@ -30,7 +30,7 @@ setup(
     author="Brewster Malevich",
     author_email="bmalevich@rhg.com",
     url="https://github.com/brews/dalia",
-    packages=find_packages(include=["dalia"]),
+    packages=find_packages(),
     include_package_data=True,
     install_requires=requirements,
     zip_safe=False,
