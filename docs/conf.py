@@ -42,17 +42,32 @@ import dalia
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.mathjax',
     'sphinx.ext.todo',
+    'numpydoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.extlinks',
     'sphinx.ext.napoleon',
-    'sphinx.ext.intersphinx']
+    'sphinx.ext.intersphinx',
+    "IPython.sphinxext.ipython_directive",
+    "IPython.sphinxext.ipython_console_highlighting",
+]
 
 extlinks = {
     'issue': ('https://github.com/brews/dalia/issues/%s', 'GH #'),
     'pull': ('https://github.com/brews/dalia/pull/%s', 'PR #')}
 
-napoleon_numpy_docstring = True
+
+autosummary_generate = True
+autodoc_typehints = "none"
+
+napoleon_use_param = True
+napoleon_use_rtype = True
+
+numpydoc_class_members_toctree = True
+numpydoc_show_class_members = False
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -123,7 +138,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
@@ -289,5 +304,10 @@ texinfo_documents = [
 
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/2.7', None)
+    "python": ("https://docs.python.org/3/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
+    "numpy": ("https://docs.scipy.org/doc/numpy/", None),
+    "numba": ("https://numba.pydata.org/numba-doc/latest/", None),
+    "matplotlib": ("https://matplotlib.org/", None),
+    "xarray": ("https://xarray.pydata.org/en/stable/", None),
 }

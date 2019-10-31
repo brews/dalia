@@ -7,3 +7,6 @@ PyYAML
 pytest
 pytest-cov
 pytest-runner
+sphinx_rtd_theme
+numpydoc
+ipython

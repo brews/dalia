@@ -8,7 +8,8 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    # TODO: put package requirements here
+    'numpy',
+    'pyyaml',
 ]
 
 setup_requirements = [
@@ -19,7 +20,6 @@ setup_requirements = [
 test_requirements = [
     'flake8',
     'pytest',
-    # TODO: put package test requirements here
 ]
 
 setup(
