@@ -32,6 +32,7 @@ install:
 - source activate test_env
 - python -m pip install -r requirements_dev.txt
 - conda install --yes --file requirements_conda.txt
+- python setup.py bdist_wheel sdist
 - pip install .
 
 script:
