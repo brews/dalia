@@ -3,13 +3,12 @@ language: python
 notifications:
   email: on_failure
 
-matrix:
-  fast_finish: true
-  include:
+os:
+- linux
+- osx
 
-  - python: 3.7
-    env:
-    - JOB_OS=Linux
+python:
+- 3.7
 
 install:
 - python setup.py bdist_wheel sdist
