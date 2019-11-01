@@ -9,31 +9,11 @@ matrix:
 
   - python: 3.7
     env:
-    - CONDA_ENV=py37
     - JOB_OS=Linux
 
-  # - os: osx
-  #   language: generic
-  #   env:
-  #   - CONDA_ENV=py37
-  #   - JOB_OS=MacOSX
-
-before_install:
-- wget https://repo.continuum.io/miniconda/Miniconda3-latest-$JOB_OS-x86_64.sh -O miniconda.sh
-- bash miniconda.sh -b -p $HOME/miniconda
-- export PATH="$HOME/miniconda/bin:$PATH"
-- hash -r
-- conda config --set always_yes yes --set changeps1 no
-- conda update -q conda
-- conda info -a
-
 install:
-- conda create -n test_env python=$TRAVIS_PYTHON_VERSION --yes
-- source activate test_env
-- python -m pip install -r requirements_dev.txt
-- conda install --yes --file requirements_conda.txt
 - python setup.py bdist_wheel sdist
-- pip install .
+- pip install .[test,dev,doc]
 
 script:
 - pytest -v --doctest-modules --pyargs dalia

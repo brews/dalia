@@ -7,20 +7,6 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = [
-    "numpy",
-    "pyyaml",
-]
-
-setup_requirements = [
-    "pytest-runner",
-]
-
-test_requirements = [
-    "flake8",
-    "pytest",
-]
-
 setup(
     name="dalia",
     version="0.1.2a2",
@@ -31,8 +17,9 @@ setup(
     author_email="bmalevich@rhg.com",
     url="https://github.com/brews/dalia",
     packages=find_packages(),
+    python_requires=">=3.7",
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=["numpy", "pyyaml"],
     zip_safe=False,
     keywords="dalia",
     classifiers=[
@@ -47,6 +34,9 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Sociology",
     ],
-    tests_require=test_requirements,
-    setup_requires=setup_requirements,
+    extras_require={
+        "test": ["pytest"],
+        "dev": ["pytest", "pytest-cov", "wheel", "flake8", "pytest", "black", "twine"],
+        "doc": ["sphinx", "sphinx_rtd_theme", "numpydoc", "ipython"],
+    },
 )
