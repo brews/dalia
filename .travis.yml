@@ -33,4 +33,5 @@ deploy:
   skip_existing: true
 
 after_success:
+- pip install coveralls
 - coveralls
