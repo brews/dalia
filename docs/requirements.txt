@@ -1,16 +1,9 @@
 numpy
 pyyaml
-bumpversion
 wheel
-flake8
-coverage
 Sphinx
 PyYAML
 pytest
-pytest-cov
-pytest-runner
 sphinx_rtd_theme
 numpydoc
 ipython
-pre-commit
-black
