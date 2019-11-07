@@ -3,29 +3,28 @@ language: python
 notifications:
   email: on_failure
 
-
 python:
-- 3.7
-- 3.8
+  - 3.7
+  - 3.8
 
 install:
-- python setup.py bdist_wheel sdist # Build for twine to check
-- pip install .[test,dev,doc]
+  - python setup.py bdist_wheel sdist # Build for twine to check
+  - pip install .[test,dev,doc]
 
 script:
-# Test inside installed package
-- pytest -v --doctest-modules --pyargs dalia
-# Test code style, format
-- flake8
-- black -v --check dalia/*
-# Test documentation
-- sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html
-# Test built package
-- twine check dist/*
+  # Test inside installed package
+  - pytest -v --doctest-modules --pyargs dalia
+  # Test code style, format
+  - flake8
+  - black -v --check dalia/*
+  # Test documentation
+  - sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html
+  # Test built package
+  - twine check dist/*
 
 after_success:
-- pip install coveralls
-- coveralls
+  - pip install coveralls
+  - coveralls
 
 jobs:
   include:
