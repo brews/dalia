@@ -34,7 +34,7 @@ jobs:
     - name: 'Conda package'
       before_script: conda install anaconda-client conda-build
       install: skip
-      script: conda build .ci/recipe/ --no-anaconda-upload
+      script: conda-build --no-anaconda-upload .ci/recipe/
     - name: 'Code format'
       before_install: skip
       install: pip install .[dev]
@@ -64,10 +64,10 @@ jobs:
       before_script:
         - conda install anaconda-client conda-build
         - conda config --set anaconda_upload yes
-      script: conda build .ci/recipe/ --user $ANACONDA_USER --token $ANACONDA_TOKEN --label dev
+      script: conda-build --user $ANACONDA_USER --token $ANACONDA_TOKEN .ci/recipe/ --label dev
     - name: 'Conda deploy'
       if: (branch = master) AND (tag IS present)
       before_script:
         - conda install anaconda-client conda-build
         - conda config --set anaconda_upload yes
-      script: conda build .ci/recipe/ --user $ANACONDA_USER --token $ANACONDA_TOKEN
+      script: conda-build --user $ANACONDA_USER --token $ANACONDA_TOKEN .ci/recipe/
