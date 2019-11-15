@@ -22,10 +22,6 @@ script:
   # Test built package
   - twine check dist/*
 
-after_success:
-  - pip install coveralls
-  - coveralls
-
 jobs:
   include:
     - stage: deploy
