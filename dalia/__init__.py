@@ -1,5 +1,5 @@
 # flake8: noqa
-0.2.1
+__version__ = "0.2.1"
 
 
 from dalia.csvv import read_csvv

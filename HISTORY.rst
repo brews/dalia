@@ -2,6 +2,12 @@
 History
 =======
 
+0.2.2 (2019-12-25)
+--------------------
+
+* Patch minor additional issues package version metadata.
+
+
 0.2.1 (2019-12-25)
 --------------------
 
