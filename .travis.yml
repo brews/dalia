@@ -28,7 +28,7 @@ jobs:
       script: sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html
 
     - stage: deploy
-      name: 'PyPI deploy'
+      name: 'PyPI'
       install: skip
       script: skip
       deploy:
