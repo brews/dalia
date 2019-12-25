@@ -2,6 +2,11 @@
 History
 =======
 
+0.2.1 (2019-12-25)
+--------------------
+
+* Patch minor issue with deployment and package version metadata.
+
 
 0.2.0 (2019-12-25)
 --------------------
