@@ -9,7 +9,7 @@ with open("HISTORY.rst") as history_file:
 
 setup(
     name="dalia",
-    version="0.2.0",
+    0.2.1,
     description="Goddess of fate, giver and taker of goods",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
