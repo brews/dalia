@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     python_requires=">=3.7",
     include_package_data=True,
-    install_requires=["numpy", "pyyaml"],
+    install_requires=["numpy", "pyyaml", "anytree"],
     zip_safe=False,
     keywords="dalia",
     classifiers=[

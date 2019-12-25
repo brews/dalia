@@ -25,6 +25,7 @@ Features
 --------
 
 * Read CSVV files with ``dalia.read_csvv()``.
+* Read regional hierarchy files as a tree with ``dalia.read_hierarchy()``.
 
 Installation
 ------------
