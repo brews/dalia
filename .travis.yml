@@ -28,11 +28,13 @@ jobs:
       script: sphinx-build -W -b html -d docs/_build/doctrees docs/. docs/_build/html
 
     - stage: deploy
-      if: (branch = master) AND (tag IS present)
       name: 'PyPI deploy'
       install: skip
       script: skip
       deploy:
+        on:
+          tags: true
+          branch: master
         provider: pypi
         distributions: sdist bdist_wheel
         user: __token__
