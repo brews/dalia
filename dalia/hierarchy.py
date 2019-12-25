@@ -10,9 +10,10 @@ def _parse_csv_buffer(b, skiplines):
     reader = csvreader(b)
 
     root = Node(
+        name="World",
         region_key="World",
         parent_key="",
-        name="World",
+        namelong="World",
         alternatives="",
         is_terminal="",
         gadmin="",
@@ -29,10 +30,11 @@ def _parse_csv_buffer(b, skiplines):
         parent_key = str(ln[1])
 
         nodes[region_key] = Node(
+            name=region_key,
             parent=nodes[parent_key],
             region_key=region_key,
             parent_key=parent_key,
-            name=str(ln[2]),
+            namelong=str(ln[2]),
             alternatives=str(ln[3]),
             is_terminal=str(ln[4]),
             gadmin=str(ln[5]),
