@@ -3,7 +3,7 @@ History
 =======
 
 
-0.1.2a3 (2019-12-25)
+0.2.0 (2019-12-25)
 --------------------
 
 * Add ``read_hierarchy()`` to read regional hierarchy CSV files.
